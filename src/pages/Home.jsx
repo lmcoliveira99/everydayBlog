@@ -1,5 +1,6 @@
 import Posts from "../components/Posts";
 import Header from "../components/Header";
+
 function Home() {
 
     return (
