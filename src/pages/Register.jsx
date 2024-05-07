@@ -29,28 +29,30 @@ function Register() {
     };
 
     return (
-        <form className="register-card" onSubmit={handleRegisterSubmit}>
-            <h1>Register</h1>
-            <label>Email</label>
-            <input
-                type="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <label>Password</label>
-            <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit">Register</button>
-            <div className="login-link">
-                <Link to="/login">Already a user?</Link>
-            </div>
-            {error && <p>{error}</p>}
-        </form>
+        <div className="register-card">
+            <form onSubmit={handleRegisterSubmit}>
+                <h1 className="title">Register</h1>
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <label>Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button type="submit">Register</button>
+                <div className="login-link">
+                    <Link to="/login">Already a user?</Link>
+                </div>
+                {error && <p>{error}</p>}
+            </form>
+        </div >
     );
 }
 

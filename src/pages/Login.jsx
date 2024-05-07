@@ -33,7 +33,7 @@ function Login() {
             .then((response) => {
                 saveToken(response.data.authToken);
                 authenticateUser();
-                navigate("/home");
+                navigate("/");
             })
             .catch((error) => {
                 const errorDescription = error.data.message;
@@ -48,7 +48,7 @@ function Login() {
         <div className='register-card'>
             <h1 className='title'>Login</h1>
             <form onSubmit={handleLoginSubmit}>
-                <label htmlFor='email'>Email</label>
+                <label>Email</label>
                 <input
                     type="email"
                     name="email"
@@ -57,7 +57,7 @@ function Login() {
                     onChange={e => setEmail(e.target.value)}
                     required
                 />
-                <label htmlFor='password'>Password</label>
+                <label>Password</label>
                 <input
                     type="password"
                     name="password"

@@ -28,48 +28,38 @@ function AuthProviderWrapper(props) {
           setUser(response.data);
           setIsLoggedIn(true);
         })
-        .catch(()=>{
+        .catch(() => {
           setUser(null);
           setIsLoggedIn(false);
         })
     }
     else {
-        setUser(null);
-        setIsLoggedIn(false);
+      setUser(null);
+      setIsLoggedIn(false);
     }
   };
 
-  const removeToken = () =>{
+  const removeToken = () => {
     localStorage.removeItem("authToken");
   }
 
-  const logOut = () =>{
+  const logOut = () => {
     removeToken();
     authenticateUser();
   }
 
-   useEffect(() => {
-     authenticateUser();
-   }, []);
+  useEffect(() => {
+    authenticateUser();
+  }, []);
 
-    
 
-  return(
-    <AuthContext.Provider value={{isLoggedIn, user, saveToken, authenticateUser, logOut}}>
-        {props.children}
+
+  return (
+    <AuthContext.Provider value={{ isLoggedIn, user, saveToken, authenticateUser, logOut }}>
+      {props.children}
     </AuthContext.Provider>
   )
 }
 
 
-export {AuthProviderWrapper, AuthContext};
-
-
-
-
-
-
-
-
-
-
+export { AuthProviderWrapper, AuthContext };
