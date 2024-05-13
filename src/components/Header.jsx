@@ -5,7 +5,6 @@ function Header() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-
         const token = localStorage.getItem("authToken");
         if (token) {
             setIsLoggedIn(true);
@@ -13,17 +12,19 @@ function Header() {
     }, []);
 
     const handleLogout = () => {
-
         localStorage.removeItem("authToken");
         setIsLoggedIn(false);
     };
 
     return (
         <header>
-            <a href="" className='logo'>My blog</a>
+            <Link to="/" className='logo'>My blog</Link>
             <nav>
                 {isLoggedIn ? (
-                    <button className="logout-btn" onClick={handleLogout}>Log Out</button>
+                    <>
+                        <button className="header-btn"><Link to="/create">Create new post</Link></button>
+                        <button className="header-btn" onClick={handleLogout}>Log Out</button>
+                    </>
                 ) : (
                     <>
                         <Link to="/login">Login</Link>
@@ -32,6 +33,7 @@ function Header() {
                 )}
             </nav>
         </header>
+
     )
 }
 
